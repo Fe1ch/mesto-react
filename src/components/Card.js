@@ -1,7 +1,7 @@
-import React from 'react';
 
-export default function Card({ card, onCardClick }) {
+const Card = ({ card, onCardClick }) => {
   const handleCardClick = () => { onCardClick(card) }
+
   return (
     <li className="element">
       <img className="element__photo" src={card.link} alt={card.name} onClick={handleCardClick} />
@@ -16,3 +16,5 @@ export default function Card({ card, onCardClick }) {
     </li>
   )
 }
+
+export default Card

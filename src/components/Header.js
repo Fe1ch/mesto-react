@@ -19,7 +19,7 @@ const Header = () => {
     if (savedTheme === 'light') {
       switchTheme();
     }
-  }, [setIndicator])
+  }, [])
 
 
   return (

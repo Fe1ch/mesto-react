@@ -1,6 +1,5 @@
-import React from 'react';
 
-export default function ImagePopup({ card, isOpen, onClose }) {
+const ImagePopup = ({ card, isOpen, onClose }) => {
   return (
     <div className={`popup popup_type_image ${isOpen ? "popup_opened" : ""}`}>
       <div className="popup__container popup__container_type_image">
@@ -11,3 +10,4 @@ export default function ImagePopup({ card, isOpen, onClose }) {
     </div>
   )
 }
+export default ImagePopup

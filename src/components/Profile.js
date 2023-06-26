@@ -13,7 +13,7 @@ const Profile = ({
     <section className="profile">
 
       <button className="profile__avatar-edit" type="button" aria-label="Изменить аватар профиля" onClick={onEditAvatar}>
-        <img className="profile__avatar" src={userAvatar} alt="" />
+        <img className="profile__avatar" src={userAvatar} alt="Аватарка" />
       </button>
 
       <div className="profile__info">

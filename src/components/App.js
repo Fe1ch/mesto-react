@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
-import { useCallback } from "react";
 
 const App = () => {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
