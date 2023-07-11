@@ -23,7 +23,7 @@ const PopupWithForm = ({ name, title, buttonText, isOpen, onClose, children, onS
           className="popup__form"
           name={`form-${name}`}
           onSubmit={handleSubmit(onSubmit)}
-          noValidate>
+        >
           {children(
             {
               register,

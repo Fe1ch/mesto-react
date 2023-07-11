@@ -51,7 +51,7 @@ const AddPlacePopup = ({ isOpen, onClose, onAddPlace, isPreloading, onOverlayClo
             id="input-card-link"
             type="url"
             placeholder="Ссылка на картинку"
-            value={register.link?.value || ''}
+            value={register.link?.value}
           />
           {
             errors.link && (

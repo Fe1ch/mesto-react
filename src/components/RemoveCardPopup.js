@@ -6,15 +6,16 @@ const RemoveCardPopup = ({ isOpen, onClose, isPreloading, onOverlayClose, onRemo
     onRemove();
   }
   return (
-    <PopupWithForm
-      name="submit-delete"
+    <PopupWithForm name="submit-delete"
       title="Вы уверены?"
       buttonText={isPreloading ? "Удаление..." : "Да"}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      onOverlayClose={onOverlayClose}
-    />
+      onOverlayClose={onOverlayClose}>
+      {() => { }}
+    </PopupWithForm>
+
   );
 
 }

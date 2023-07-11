@@ -31,7 +31,6 @@ const App = () => {
     setIsPreloading(true)
     Promise.all([api.getUserInfoProfile(), api.getInitialsCards()])
       .then(([data, cards]) => {
-        debugger
         setCurrentUser(data)
         setCards(cards)
       })
