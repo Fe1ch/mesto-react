@@ -1,54 +1,43 @@
-import { useEffect, useState } from 'react';
-import { api } from '../utils.js/api';
+import { Outlet } from 'react-router-dom';
 import Card from './Card';
 import Profile from './Profile';
+import Spinner from './Spinner';
+
 const Main = ({
   onEditProfile,
   onAddPlace,
   onEditAvatar,
-  onCardClick
+  onCardClick,
+  cards,
+  isPreloading,
+  onCardLike,
+  onCardDelete
 }) => {
-  const [userName, setUserName] = useState('');
-  const [userDescription, setUserDescription] = useState('');
-  const [userAvatar, setUserAvatar] = useState('');
-  const [cards, setInitialCards] = useState([]);
-
-  useEffect(() => {
-    Promise.all([api.getUserInfoProfile(), api.getInitialsCards()])
-      .then(([data, cards]) => {
-        setUserName(data.name);
-        setUserDescription(data.about);
-        setUserAvatar(data.avatar);
-        setInitialCards(cards)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
   return (
     <main className='content'>
       <Profile
-        userName={userName}
-        userDescription={userDescription}
-        userAvatar={userAvatar}
         onEditProfile={onEditProfile}
         onAddPlace={onAddPlace}
         onEditAvatar={onEditAvatar}
       />
 
       <section className="elements">
-        <ul className="elements__container">
-          {
-            cards.map((card) =>
-              <Card
-                card={card}
-                key={card._id}
-                onCardClick={onCardClick}
-              />
-            )
-          }
-        </ul>
+        {isPreloading ? <Spinner /> :
+          <ul className="elements__container">
+            {
+              cards.map((card) =>
+                <Card
+                  card={card}
+                  key={card._id}
+                  onCardClick={onCardClick}
+                  onCardLike={onCardLike}
+                  onCardDelete={onCardDelete}
+                />
+              )}
+          </ul>
+        }
       </section>
+      <Outlet />
     </main>
   )
 }

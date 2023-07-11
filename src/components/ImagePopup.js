@@ -1,13 +1,34 @@
+import { Link, useParams } from "react-router-dom"
 
-const ImagePopup = ({ card, isOpen, onClose }) => {
+const ImagePopup = ({ cards, card, isOpen, onClose, onOverlayClose }) => {
+
+  const getCardsById = (cards, _id) => cards.find(card => card._id === _id)
+  const { id } = useParams()
+  const selectedCard = getCardsById(cards, id)
+  const isPopupOpen = selectedCard || isOpen;
+
   return (
-    <div className={`popup popup_type_image ${isOpen ? "popup_opened" : ""}`}>
-      <div className="popup__container popup__container_type_image">
-        <button className="popup__close" type="button" aria-label="Закрыть окно" onClick={onClose} />
-        <img className="popup__photo" src={card.link} alt={card.name} />
-        <figcaption className="popup__photo-subtitle">{card.name}</figcaption>
+    <div
+      className={`popup popup_type_image ${isPopupOpen ? "popup_opened" : ""}`}
+      onMouseDown={onOverlayClose}>
+      <div
+        className="popup__container popup__container_type_image">
+        <Link
+          to='/'
+          className="popup__close"
+          type="button"
+          aria-label="Закрыть окно"
+          onClick={onClose} />
+        <img
+          className="popup__photo"
+          src={selectedCard?.link}
+          alt={selectedCard?.name} />
+        <figcaption
+          className="popup__photo-subtitle">
+          {selectedCard?.name}
+        </figcaption>
       </div>
-    </div>
+    </div >
   )
 }
 export default ImagePopup
