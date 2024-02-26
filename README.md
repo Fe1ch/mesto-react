@@ -1,7 +1,7 @@
 <h1>Учебный frontend-проект "Mesto"</h1>
 
 <a href="https://fe1ch.github.io/mesto-react/" target="blank">
-<img src='./src/images/скрин-проекта.png'>
+<img src='./src/images/Скрин-проекта.png'>
 </a>
 
 <h2>Описание проекта</h2>
