@@ -1,5 +1,4 @@
 .header__container {
-  margin: 5px 0 2px;
   position: relative;
   display: flex;
   width: 60px;
@@ -11,5 +10,10 @@
     inset 0 8px 8px rgba(0, 0, 0, 0.1),
     inset 0 -4px 4px rgba(0, 0, 0, 0.1);
   transition: 0.2s;
-  box-sizing: border-box;
+}
+
+@media screen and (max-width:917px) {
+  .header__container {
+    margin-right: 27px;
+  }
 }
