@@ -168,7 +168,7 @@ const App = () => {
       <div className="page__container">
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
-            <Route path='/' element={
+            <Route path='/mesto-react' element={
               <>
                 <Header />
                 <Main
